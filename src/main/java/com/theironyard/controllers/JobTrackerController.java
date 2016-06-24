@@ -1,5 +1,8 @@
 package com.theironyard.controllers;
 
+import com.theironyard.services.ApplicationRepository;
+import com.theironyard.services.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -7,5 +10,12 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class JobTrackerController {
+
+    @Autowired
+    UserRepository users;
+
+    @Autowired
+    ApplicationRepository applications;
+
 
 }
