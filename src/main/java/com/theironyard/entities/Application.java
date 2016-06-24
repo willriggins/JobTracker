@@ -29,7 +29,7 @@ public class Application {
     LocalDate dateApplied;
 
     @Column(nullable = false)
-    LocalDate lastContactDate;
+    String companyLogo;
 
     @ManyToOne
     User user;
@@ -37,13 +37,13 @@ public class Application {
     public Application() {
     }
 
-    public Application(String companyName, String contactName, String contactPhoneNumber, String positionTitle, LocalDate dateApplied, LocalDate lastContactDate, User user) {
+    public Application(String companyName, String contactName, String contactPhoneNumber, String positionTitle, LocalDate dateApplied, String companyLogo, User user) {
         this.companyName = companyName;
         this.contactName = contactName;
         this.contactPhoneNumber = contactPhoneNumber;
         this.positionTitle = positionTitle;
         this.dateApplied = dateApplied;
-        this.lastContactDate = lastContactDate;
+        this.companyLogo = companyLogo;
         this.user = user;
     }
 
@@ -95,12 +95,12 @@ public class Application {
         this.dateApplied = dateApplied;
     }
 
-    public LocalDate getLastContactDate() {
-        return lastContactDate;
+    public String getCompanyLogo() {
+        return companyLogo;
     }
 
-    public void setLastContactDate(LocalDate lastContactDate) {
-        this.lastContactDate = lastContactDate;
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
     }
 
     public User getUser() {

@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Job Tracker | Home</title>
-    <link rel="icon" href="static/icon.ico"/>
+    <link rel="icon" href="icon.ico"/>
 </head>
 <body>
-
+{{^username}}
+<form class="forms" action="/login" method="post">
+  <input type="text" name="username" placeholder="Enter username">
+  <input type="password" name="password" placeholder="Enter password">
+  <button type="submit">Log in</button>
+</form>
+{{/username}}
+{{#username}}
+Welcome back, {{.}}!
+<form class="forms" action="/logout" method="post">
+  <button type="submit">Log out</button>
+</form>
+<br><br>
+<form class="forms" action="/add-application" method="post">
+  <input type="text" name="companyName" placeholder="Company Name">
+  <input type="text" name="contactName" placeholder="Contact Name">
+  <input type="phone" name="contactPhoneNumber" placeholder="Phone Number">
+  <input type="text" name="positionTitle" placeholder="Position Title">
+  <input type="date" name="dateApplied" placeholder="Date Applied">
+  <input type="text" name="companyLogo" placeholder="Link to Company Logo">
+  <button type="submit">Add Application</button>
+</form>
+{{/username}}
 </body>
 </html>
