@@ -1,5 +1,6 @@
 package com.theironyard.controllers;
 
+import com.theironyard.entities.Application;
 import com.theironyard.entities.User;
 import com.theironyard.services.ApplicationRepository;
 import com.theironyard.services.UserRepository;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 
 /**
  * Created by will on 6/23/16.
@@ -28,6 +30,7 @@ public class JobTrackerController {
     public String home(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         model.addAttribute("username", username);
+        model.addAttribute("applications", applications.findAll());
         return "home";
     }
 
@@ -39,7 +42,7 @@ public class JobTrackerController {
             users.save(user);
         }
         else if (!PasswordStorage.verifyPassword(password, user.getPassword())) {
-            return "redirect:/error";
+            return "alert";
         }
         session.setAttribute("username", username);
         return "redirect:/";
@@ -51,4 +54,12 @@ public class JobTrackerController {
         return "redirect:/";
     }
 
+    @RequestMapping(path = "/add-application", method = RequestMethod.POST)
+    public String add(HttpSession session, String companyName, String contactName, String contactPhoneNumber, String positionTitle, String companyLogo) {
+        String username = (String) session.getAttribute("username");
+        User user = users.findByName(username);
+        Application application = new Application(companyName, contactName, contactPhoneNumber, positionTitle, companyLogo, user);
+        applications.save(application);
+        return "redirect:/";
+    }
 }

@@ -24,10 +24,20 @@ Welcome back, {{.}}!
   <input type="text" name="contactName" placeholder="Contact Name">
   <input type="phone" name="contactPhoneNumber" placeholder="Phone Number">
   <input type="text" name="positionTitle" placeholder="Position Title">
-  <input type="date" name="dateApplied" placeholder="Date Applied">
   <input type="text" name="companyLogo" placeholder="Link to Company Logo">
   <button type="submit">Add Application</button>
 </form>
+<br>
 {{/username}}
+{{#applications}}
+<div class="app">
+{{companyName}}<br>
+{{contactName}}<br>
+{{contactPhoneNumber}}<br>
+{{positionTitle}}<br>
+<img src="{{companyLogo}}"/>
+</div>
+{{/applications}}
+
 </body>
 </html>

@@ -26,9 +26,6 @@ public class Application {
     String positionTitle;
 
     @Column(nullable = false)
-    LocalDate dateApplied;
-
-    @Column(nullable = false)
     String companyLogo;
 
     @ManyToOne
@@ -37,12 +34,12 @@ public class Application {
     public Application() {
     }
 
-    public Application(String companyName, String contactName, String contactPhoneNumber, String positionTitle, LocalDate dateApplied, String companyLogo, User user) {
+
+    public Application(String companyName, String contactName, String contactPhoneNumber, String positionTitle, String companyLogo, User user) {
         this.companyName = companyName;
         this.contactName = contactName;
         this.contactPhoneNumber = contactPhoneNumber;
         this.positionTitle = positionTitle;
-        this.dateApplied = dateApplied;
         this.companyLogo = companyLogo;
         this.user = user;
     }
@@ -87,13 +84,6 @@ public class Application {
         this.positionTitle = positionTitle;
     }
 
-    public LocalDate getDateApplied() {
-        return dateApplied;
-    }
-
-    public void setDateApplied(LocalDate dateApplied) {
-        this.dateApplied = dateApplied;
-    }
 
     public String getCompanyLogo() {
         return companyLogo;
