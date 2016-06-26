@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Job Tracker | Home</title>
     <link rel="icon" href="icon.ico"/>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
 {{^username}}
@@ -22,7 +23,7 @@ Welcome back, {{.}}!
 <form class="forms" action="/add-application" method="post">
   <input type="text" name="companyName" placeholder="Company Name">
   <input type="text" name="contactName" placeholder="Contact Name">
-  <input type="phone" name="contactPhoneNumber" placeholder="Phone Number">
+  <input type="text" name="contactPhoneNumber" placeholder="Phone Number">
   <input type="text" name="positionTitle" placeholder="Position Title">
   <input type="text" name="companyLogo" placeholder="Link to Company Logo">
   <button type="submit">Add Application</button>
@@ -30,14 +31,17 @@ Welcome back, {{.}}!
 <br>
 {{/username}}
 {{#applications}}
-<div class="app">
-{{companyName}}<br>
-{{contactName}}<br>
-{{contactPhoneNumber}}<br>
-{{positionTitle}}<br>
-<img src="{{companyLogo}}"/>
+<div class="wrapper">
+    <div class="app"><img src="{{companyLogo}}"/></div><br>
+<b>Company Name:</b> {{companyName}}<br>
+<b>Contact:</b> {{contactName}}<br>
+<b>Phone:</b> {{contactPhoneNumber}}<br>
+<b>Position:</b> {{positionTitle}}<br>
+    <form action="/delete-application" method="post" style="display:inline-block">
+        <input type="hidden" name="id" value="{{id}}"/>
+        <button type="submit">Delete</button>
+    </form>
 </div>
 {{/applications}}
-
 </body>
 </html>

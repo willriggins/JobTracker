@@ -1,0 +1,28 @@
+img {
+ max-width: 200px;
+ max-height: 200px;
+}
+
+body {
+    font-family: Arial;
+}
+
+input {
+    font-family: Arial;
+}
+
+button {
+    font-family: Arial;
+}
+
+.wrapper {
+    width: 33%;
+    float: left;
+
+}
+
+thislinecausesweirdstufftohappenwiththelayout
+
+.app {
+float: left;
+}

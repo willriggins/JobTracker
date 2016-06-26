@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
-import java.time.LocalDate;
 
 /**
  * Created by will on 6/23/16.
@@ -29,8 +28,14 @@ public class JobTrackerController {
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String home(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
-        model.addAttribute("username", username);
-        model.addAttribute("applications", applications.findAll());
+
+        if (username != null) {
+            User user = users.findByName(username);
+            Iterable<Application> apps;
+            apps = applications.findByUser(user);
+            model.addAttribute("username", username);
+            model.addAttribute("applications", apps);
+        }
         return "home";
     }
 
@@ -62,4 +67,12 @@ public class JobTrackerController {
         applications.save(application);
         return "redirect:/";
     }
+
+    @RequestMapping(path = "/delete-application", method = RequestMethod.POST)
+    public String delete(int id) {
+        applications.delete(id);
+        return "redirect:/";
+    }
+
+
 }

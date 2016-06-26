@@ -44,6 +44,16 @@ public class Application {
         this.user = user;
     }
 
+    public Application(int id, String companyName, String contactName, String contactPhoneNumber, String positionTitle, String companyLogo, User user) {
+        this.id = id;
+        this.companyName = companyName;
+        this.contactName = contactName;
+        this.contactPhoneNumber = contactPhoneNumber;
+        this.positionTitle = positionTitle;
+        this.companyLogo = companyLogo;
+        this.user = user;
+    }
+
     public int getId() {
         return id;
     }
