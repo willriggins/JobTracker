@@ -74,5 +74,12 @@ public class JobTrackerController {
         return "redirect:/";
     }
 
-
+    @RequestMapping(path = "/edit-application", method = RequestMethod.POST)
+    public String editApp(HttpSession session, Integer id, String companyName, String contactName, String contactPhoneNumber, String positionTitle, String companyLogo) {
+        String username = (String) session.getAttribute("username");
+        User user = users.findByName(username);
+        Application application = new Application(id, companyName, contactName, contactPhoneNumber, positionTitle, companyLogo, user);
+        applications.save(application);
+        return "redirect:/";
+    }
 }

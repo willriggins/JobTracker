@@ -17,12 +17,17 @@ button {
 
 .wrapper {
     width: 33%;
+    height: 400px;
     float: left;
-
+    text-align: center;
 }
 
-thislinecausesweirdstufftohappenwiththelayout
+thisLineCausesWeirdStuffToHappenWithTheLayoutAndImNotSureWhy
 
 .app {
 float: left;
+}
+
+.welcome {
+text-align: right;
 }

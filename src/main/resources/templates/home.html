@@ -15,10 +15,11 @@
 </form>
 {{/username}}
 {{#username}}
-Welcome back, {{.}}!
-<form class="forms" action="/logout" method="post">
+<div class="welcome">Welcome back, {{.}}!
+<form class="forms" action="/logout" method="post" style="display: inline-block;">
   <button type="submit">Log out</button>
 </form>
+    </div>
 <br><br>
 <form class="forms" action="/add-application" method="post">
   <input type="text" name="companyName" placeholder="Company Name">
@@ -41,6 +42,18 @@ Welcome back, {{.}}!
         <input type="hidden" name="id" value="{{id}}"/>
         <button type="submit">Delete</button>
     </form>
+    <br>
+    <form action="/edit-application" method="post" style="display:inline-block">
+        <input type="hidden" name="id" value="{{id}}"/>
+        <input type="text" name="companyName" placeholder="Company Name"><br>
+        <input type="text" name="contactName" placeholder="Contact Name"><br>
+        <input type="text" name="contactPhoneNumber" placeholder="Phone Number"><br>
+        <input type="text" name="positionTitle" placeholder="Position Title"><br>
+        <input type="text" name="companyLogo" placeholder="Link to Company Logo"><br>
+        <button type="submit">Edit</button>
+    </form>
+
+
 </div>
 {{/applications}}
 </body>
