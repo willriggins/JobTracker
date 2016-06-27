@@ -40,9 +40,10 @@
 <b>Position:</b> {{positionTitle}}<br>
     <form action="/delete-application" method="post" style="display:inline-block">
         <input type="hidden" name="id" value="{{id}}"/>
-        <button type="submit">Delete</button>
+        <button type="submit">Delete</button><button class="toggle" type="button">Show</button>
     </form>
     <br>
+    <div class="wrapper1">
     <form action="/edit-application" method="post" style="display:inline-block">
         <input type="hidden" name="id" value="{{id}}"/>
         <input type="text" name="companyName" placeholder="Company Name"><br>
@@ -52,9 +53,11 @@
         <input type="text" name="companyLogo" placeholder="Link to Company Logo"><br>
         <button type="submit">Edit</button>
     </form>
-
-
+        </div>
 </div>
 {{/applications}}
+<!-- See link for jquery fading: http://www.w3schools.com/jquery/jquery_fade.asp -->
+<script src="jquery-3.0.0.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
