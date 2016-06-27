@@ -22,7 +22,7 @@ button {
     text-align: center;
 }
 
-thisLineCausesWeirdStuffToHappenWithTheLayoutAndImNotSureWhy
+thisLineCausesWeirdStuffToHappenWithTheLayoutAndImStillFiguringItOut
 
 .app {
 float: left;
@@ -30,4 +30,16 @@ float: left;
 
 .welcome {
 text-align: right;
+}
+
+.header {
+    height: 250px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.rt {
+  text-align: center;
 }

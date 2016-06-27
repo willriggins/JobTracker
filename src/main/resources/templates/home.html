@@ -15,22 +15,28 @@
 </form>
 {{/username}}
 {{#username}}
+<div class="header">
 <div class="welcome">Welcome back, {{.}}!
 <form class="forms" action="/logout" method="post" style="display: inline-block;">
   <button type="submit">Log out</button>
 </form>
     </div>
+    <h1>Application Manager</h1>
 <br><br>
+<div class="rt">
 <form class="forms" action="/add-application" method="post">
-  <input type="text" name="companyName" placeholder="Company Name">
-  <input type="text" name="contactName" placeholder="Contact Name">
-  <input type="text" name="contactPhoneNumber" placeholder="Phone Number">
-  <input type="text" name="positionTitle" placeholder="Position Title">
-  <input type="text" name="companyLogo" placeholder="Link to Company Logo">
-  <button type="submit">Add Application</button>
+  <input type="text" name="companyName" placeholder="Company Name"><br>
+  <input type="text" name="contactName" placeholder="Contact Name"><br>
+  <input type="text" name="contactPhoneNumber" placeholder="Phone Number"><br>
+  <input type="text" name="positionTitle" placeholder="Position Title"><br>
+  <input type="text" name="companyLogo" placeholder="Link to Company Logo"><br>
+  <button type="submit">Add Application</button><br>
 </form>
+</div>
 <br>
+</div>
 {{/username}}
+
 {{#applications}}
 <div class="wrapper">
     <div class="app"><img src="{{companyLogo}}"/></div><br>
@@ -51,7 +57,7 @@
         <input type="text" name="contactPhoneNumber" placeholder="Phone Number"><br>
         <input type="text" name="positionTitle" placeholder="Position Title"><br>
         <input type="text" name="companyLogo" placeholder="Link to Company Logo"><br>
-        <button type="submit">Edit</button>
+        <button type="submit">Save Changes</button>
     </form>
         </div>
 </div>
