@@ -7,7 +7,7 @@ $(document).ready(function(){
 $(function(){
    $(".toggle").click(function () {
       $(this).text(function(i, text){
-          return text === "Show" ? "Hide" : "Show";
+          return text === "Hide" ? "Show" : "Hide";
       })
    });
 })
